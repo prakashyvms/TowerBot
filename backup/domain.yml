@@ -1,0 +1,384 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- deny
+- request_names
+- goodbye
+- affirm
+- mood_great
+- mood_unhappy
+- bot_challenge
+- circular
+- test_kit
+- transmission_line
+- patrolling
+- tree_cutting
+- painting
+- compensation
+- topic
+- megger
+- TFR
+- LaserCM
+- total_station
+- nlu_fallback
+- safety
+- spec
+- manual
+- tower
+- conductor
+- insulator
+- erection_manual
+- tlmprocedure
+- strining
+- commissioningformats
+- inventorynorms
+- pollutionmeasurement
+- ers
+- clearance
+- RoWclearance
+- treeclearance
+- rivercrossclearance
+- groundclearance
+- conductorearthwireclearance
+- linecrossingclearance
+- jumperdrop
+- highwayclearance
+- buildingclearance
+- 400kdctwin
+- 400kVdcquad
+- 765kVDC
+- 765kVSC
+- 500kVHVDC
+- drawing
+
+forms:
+  name_form:
+    required_slots:
+      - station_name
+      - line_name
+      - input_category
+      - fault_distance
+      - tower_loc
+slots:
+  station_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: station_name
+  line_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: line_name
+  input_category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: input_category
+  fault_distance:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: fault_distance
+  tower_loc:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: tower_loc
+  
+responses:
+  utter_greet:
+  - text: Hey! How are you? What would you like to know?
+    buttons:
+    - title: "Circular"
+      payload: /circular
+    - title: "Testing Kits"
+      payload: /test_kit
+    - title: "Technical Specifications"
+      payload: /spec
+    - title: "Permissible Clearance"
+      payload: /clearance
+    - title: "Transmission Line"
+      payload: /transmission_line
+    - title: "Drawing"
+      payload: /drawing
+
+
+  utter_options:
+  - text: "Options:"
+    buttons:
+    - title: "Circular"
+      payload: /circular
+    - title: "Testing Kits"
+      payload: /test_kit
+    - title: "Technical Specifications"
+      payload: /spec
+    - title: "Transmission Line"
+      payload: /transmission_line
+    - title: "Drawing"
+      payload: /drawing
+
+
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_details_want:
+  - text: What type of details you want to know?
+    buttons:
+    - title: "Circular"
+      payload: /circular
+    - title: "Testing Kits"
+      payload: /test_kit
+    - title: "Technical Specifications"
+      payload: /spec
+    - title: "Transmission Line"
+      payload: /transmission_line
+    - title: "Drawing"
+      payload: /drawing
+
+  utter_circular:
+  - text: please choose topic
+    buttons:
+    - title: "Patrolling"
+      payload: /patrolling
+    - title: "Tree_cutting"
+      payload: /tree_cutting
+    - title: "Painting"
+      payload: /painting
+    - title: "Compensation"
+      payload: /compensation
+    - title: "Manual"
+      payload: /manual
+    - title: "Safety"
+      payload: /safety
+
+  utter_patrolling:
+  - text: "Schedules, Norms & Format for Patrolling and Maintenance of TL:- <br> Normal Terrain:<br> 400kV or Below Transmission lines:  Every 6months<br>765kV & HVDC Transmission lines: Every 4 months<br> Vulnerable Terrain: Every 3 months.<br><br> Emergency Patrolling: Post fault patrolling about 10 towers on both side of fault location to be done(High optical zoom camera, Clearance measurement instrument & Tower Footing impedance kits to be utilized during post fault patrolling)<br> Tower top patrolling to be carried out in case of repeated tripping Auto re-closure to find the untraceable faults during ground patrolling.<br> Source-guidelines: <a href='https://drive.google.com/file/d/1T-e6b2a13HxfYHFmRCYDDv55s02gB6oh/view?usp=share_link'>Click here for reference <a/>"
+
+  utter_tree_cutting:
+  - text: "clerance 5.5 metre for 400kV <br> 7.49 metre for 500kV HVDC <br> 9 metre for 765kV is to be maintained.<a href='https://drive.google.com/file/d/1I5ojPlD2bbFrdYOrf957qT52_wr-yxtI/view?usp=share_link'>Click here for reference <a/>"
+    image: 'tlmimage/Tree clearance.jpg'
+  utter_painting:
+  - text: "Application of anti-corrosive paint on stubs/tower legs up to 350mm above concrete level in all towers which have completed 20years of service or towers located in Paddy/sugar cane fields to be done.<br> Further raising of chimney of foundation up to 225mm above ground level/field water level may be done.<br> Surface of stub to be prepared prior to applying of paint (Cleaning, Degreasing & Pickling/De-Rusting) <br> Application of coating: <br> 1st coat - Bison Wash Primer(Berger make) <br> 2nd coat - Luxol Zink Chromite Primer - 2 Coats (Berger Make) <br> 3rd & 4th Coat- Any Synthetic enamel Paint (ex: Luxol Hi-Gloss).<br> <a href='https://drive.google.com/file/d/1f1_kuu9R9E785DqwnQiOaPSfrUF_qwGJ/view?usp=share_link'>Click here for reference <a/>"
+
+  utter_compensation:
+  - text:  "compensation details are available at circular: <a href='https://powermin.gov.in/sites/default/files/Urban_RoW_Guidelines_0.pdf'>Click here for reference <a/>"
+
+  utter_safety:
+  - text: "Quote: Carefulness costs you nothing.Carelessness may cost you your life.<br> <a href='https://drive.google.com/file/d/13ToZo7W1kxOf-zZBJA0fH_relFGdBDJ9/view?usp=share_link'>Click here for safety manual <a/>"
+    image: 'tlmimage/safety cartoon.jpg'
+
+  utter_test_kit:
+  - text:  please select test kit
+    buttons:
+    - title: "Megger"
+      payload: /megger
+    - title: "TFR-Tower Footing Resistance"
+      payload: /TFR
+    - title: "Laser Clearance Measurement"
+      payload: /LaserCM
+    - title: "Total_Station"
+      payload: /total_station
+
+  utter_megger:
+  - text: "<a href='https://drive.google.com/file/d/11QecTVnP_6MPswLyldcUvOPHcPMFZjc_/view?usp=share_link'>Click here for megger manual <a/>"
+
+  utter_TFR:
+  - text: "IEEE 81-1983 in its numeral 12.6 suggests that the transmission line tower foot measurement should be implemented with a high frequency ground resistance meter, which operates at 25KHz.<br> PREZIOHM TFR kit of TAURUS make is used for TFR measurement & It consists of 3 electrodes (Earth electrode, Potential electrode & Current electrode).<br> Tower Footing Resistance can be measured by fall of potential method (Current electrode will be paced in farthest point(ex: L mtr) & Potential electrode will be placed at 61.8% of L apart from ground electrode which is connected to tower leg. <br> Placement of test electrodes should be maintained at perpendicular to direction of powerline. <br> After making connections test will be started by pressing START button on kit & Test results will be displayed as Zv, Za, R & L.(Zv is for device internal calculation purpose only).<br> <a href='https://drive.google.com/file/d/14OkG_LOFgp9RlK1z9mD_5b5rra8849fl/view?usp=share_link'>Click here for reference <a/>"
+
+  utter_LaserCM:
+  - text: "Trupulse 360R device is used for clearance measurement & It consists of the following features.<br> 1.Measurement modes(7 types): <br>SD - Slope  Distance<br>VD - Vertical  Distance<br>HD - Horizontal Distance<br>INC - Inclination<br>AZ - Azimuth<br>HT - Height<br>ML - Missing line.<br>2.Target Modes(5 types): <br>CONT - Continuous <br>CLOSEST - Closest target distance recorded <br>FARTHEST - Farthest target distance recorded <br>FILTER - Laser's sensitivity reduced in order to detect pulses returned from a reflector <br>STD - Standard. <br>Trupulse 360R features following measurement units: Yards , Meters, Feet, Degrees, Percentage(Inclination).<br> <a href='https://drive.google.com/file/d/1vPWEtJ7mkbNTiemFCkjBLYpC-DAWRbCS/view?usp=share_link'>Click here for reference <a/>"
+
+  utter_total_station:
+  - text: "<a href='https://drive.google.com/file/d/1qt92VBlQz4F4yb9ICYD5isQ6wneEfUMb/view?usp=share_link'>Click here for Total Station presentation <a/>"
+
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_station_name:
+  - text: What is your station name?
+    buttons:
+    - title: "Vemagiri"
+      payload: Vemagiri
+    - title: "Talcher"
+      payload: Talcher
+    - title: "Kolar"
+      payload: Kolar"
+  utter_ask_input_category:
+  - text: Which Cateogory of input do you have?
+    buttons:
+    - title: "Tower Location Number"
+      payload: Tower_loc
+    - title: "Distance"
+      payload: "Distance"
+  utter_ask_fault_distance:
+    - text: What is fault distance from {station_name} in Kms
+  utter_ask_tower_loc:
+    - text: Please give tower number of {line_name}
+  utter_manual:
+  - text: "Hand book on maintenance procedures of transmission lines having bundle conductor (QUADRUPLE AND TWIN) under induced voltage condition is issued with Doc.No: D-7-02-70-01-01 .<br>This hand book consists of maintenance procedure for following activities.<br> 1. TENSION INSULATOR CHANGING <br>2. SUSPENSION INSULATOR CHANGING FOR V- STRING & I- STRING <br>3. CATCHING OFF / HOLDING CONDUCTOR AT SUSPENSION TOWER <br>4. RAISING AND LOWERING QUAD & TWIN CONDUCTOR AND INSULATOR TO THE GROUND <br>5. REPAIR OF CONDUCTOR IN SITU WITH MID SPAN COMPRESSION JOINT <br>6. REPAIR OF CONDUCTOR IN SITU WITH REPAIR SLEEVE <br>7. TEMPORARY REPAIR OF MID SPAN / DEAD AND COMPRESSION JOINTS. <br> <a href='https://drive.google.com/file/d/1DwXfkGu6zwSurSsqACMGZQ1ZfG-_Y8IQ/view?usp=share_link'>Click here for reference <a/>"
+    buttons:
+    - title: "Tower Erection"
+      payload: /erection_manual
+    - title: "TL Maintenance Procedure"
+      payload: /tlmprocedure
+    - title: "Stringing"
+      payload: /strining
+    - title: "Commissioning Formats"
+      payload: /commissioningformats
+    - title: "Inventory Norms"
+      payload: /inventorynorms
+    - title: "Pollution Measurement"
+      payload: /pollutionmeasurement
+    - title: "ERS"
+      payload: /ers
+  utter_spec:
+  - text: Please Choose material
+    buttons:
+    - title: "Tower"
+      payload: /tower
+    - title: "Conductor"
+      payload: /conductor
+    - title: "Insulator"
+      payload: /insulator
+  utter_tower:
+  - text: "<a href='https://drive.google.com/file/d/1DJARWr5RElzcnq03Lyk-2WltNeFmsaE4/view?usp=share_link'>Click here for Tower Technical data <a/>"
+    image: 'tlmimage/Wind_weight span.jpg'
+  utter_conductor:
+  - text: "<a href='https://drive.google.com/file/d/1cPtoTFRdF_Ij_5L64N9p5p4ehqIi0B9V/view?usp=share_link'>Click here for conductor details <a/>"
+  utter_insulator:
+  - text: "insulator configuration & specification <a href='https://drive.google.com/file/d/1pB5JNtvs5iZpKe-80ILPMC9cVJUJVu6E/view?usp=share_link'>Click here for CLR Insulator specification & Insulator configuration data <a/>"
+    buttons:
+    - title: "400kV D/c Twin"
+      payload: /400kdctwin
+    - title: "400kV D/c Quad"
+      payload: /400kVdcquad
+    - title: "765kV D/c"
+      payload: /765kVDC
+    - title: "765kV D/c"
+      payload: /765kVSC 
+    - title: "500kV HVDC"
+      payload: /500kVHVDC
+     
+
+  utter_clearance:
+  - text: "What type of permissible clearance you'd like to know:"
+    buttons:
+    - title: "RoW"
+      payload: /RoWclearance
+    - title: "Tree"
+      payload: /treeclearance
+    - title: "River Crossing"
+      payload: /rivercrossclearance
+    - title: "Ground Clearance"
+      payload: /groundclearance
+    - title: "Conductor Earth Wire"
+      payload: /conductorearthwireclearance
+    - title: "Line Crossing Clearance"
+      payload: /linecrossingclearance
+    - title: "Jumper Drop"
+      payload: /jumperdrop
+    - title: "Highway"
+      payload: /highwayclearance
+    - title: "Building"
+      payload: /buildingclearance
+  
+  utter_submit:
+  - text: Ok. Thanks!
+  utter_slots_values:
+  - text: Hope you find details of {line_name} connected to {station_name} TLM!. Bye!
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.Would you like to know any one of following?
+  utter_please_rephrase:
+  - text: Sorry, I didn't quite understand.What would you like to know?
+  utter_default:
+  - text: Sorry I didn't get that. What would you like to know?
+  utter_erection_manual:
+  - text: "<a href='https://drive.google.com/file/d/1c4wLod8wXozU3DbtbBx7-qW4hwaDCzAq/view?usp=share_link'>Click here for tower erection manual <a/>"
+  utter_tlmprocedure:
+  - text: "<a href='https://drive.google.com/file/d/1DwXfkGu6zwSurSsqACMGZQ1ZfG-_Y8IQ/view?usp=share_link'>Click here for TL maintenance procedure Handbook <a/>"
+  utter_strining:
+  - text: "<a href='https://drive.google.com/file/d/1Fb4IpTIwKXmSgzbDV0gOhNKRC_s-ojEB/view?usp=share_link'>Click here for stringing manual <a/>"
+  utter_commissioningformats:
+  - text: "<a href='https://drive.google.com/file/d/1p5pHRMdHWKmbVICKCRMZi8eBifRgQJ6R/view?usp=share_link'>Click here for pre-commissioning formats <a/>"
+  utter_inventorynorms:
+  - text: "<a href='https://drive.google.com/file/d/1nxL9Q-VBCJm7IhJ-IoupvcGH1EZ8YtGf/view?usp=share_link'>Click here for Inventory norms for TL <a/>"
+  utter_pollutionmeasurement:
+  - text: "<a href='https://drive.google.com/file/d/1iEsWTxmSkp6Q_hRZYH40Y6Ex0HTgA6UD/view?usp=share_link'>Click here for Guidelines & procedure for polution measurement on dummy insulators <a/>"
+  utter_ers:
+  - text: "<a href='https://drive.google.com/file/d/1CwpcJ7js3sT7gATpz_uY4jrf0yVsBPqI/view?usp=share_link'>Click here for ERS manual <a/>"
+  
+  utter_groundclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/minimum ground clearance.jpg'
+  utter_conductorearthwireclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/minimum clearance from Earthwire to Top phase.jpg'
+  utter_linecrossingclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Power line crossing clearances.jpg'
+  utter_jumperdrop:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Jumper drop clearances.jpg'
+  utter_highwayclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Clearance from Highway road.jpg'
+  utter_buildingclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Clearance from building.jpg'
+  utter_RoWclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Right of way _width.jpg'
+  utter_treeclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/Tree clearance.jpg'
+  utter_rivercrossclearance:
+  - text: "Here are the particulars"
+    image: 'tlmimage/River crossing clearances.jpg'
+  utter_400kdctwin:
+  - text: "Here are the particulars"
+    image: 'tlmimage/400kV_Twin Moose_Insulator configuration.jpg'
+  utter_400kVdcquad:
+  - text: "Here are the particulars"
+    image: 'tlmimage/400kV_Quad Moose_Insulator configuration.PNG'
+  utter_765kVDC:
+  - text: "Here are the particulars"
+    image: 'tlmimage/765kV_Double Circuit_Insulator configuration.jpg'
+  utter_765kVSC:
+  - text: "Here are the particulars"
+    image: 'tlmimage/765kV_Single Circuit_Insulator configuration.jpg'
+  utter_500kVHVDC:
+  - text: "Here are the particulars <img src='tlmimage/500kV_HVDC_Insulator configuration.jpg' alt='Local Image'>"
+  utter_drawing:
+  - text: "<a href='drawing'>Click here for tower drawings <a/>"
+    
+actions:
+- action_say_fault_details
+- action_ask_line_name
+- validate_name_form
+- utter_greet
+- utter_slots_values
+- utter_submit

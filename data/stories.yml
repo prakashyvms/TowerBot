@@ -1,0 +1,81 @@
+version: "3.0"
+
+stories:
+
+- story: interactive story 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_names
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: station_name
+  - slot_was_set:
+    - station_name: vemagiri
+  - slot_was_set:
+    - requested_slot: line_name
+  - slot_was_set:
+    - line_name: vemagiri-gajuwaka
+  - slot_was_set:
+    - requested_slot: input_category
+  - slot_was_set:
+    - input_category: Tower_loc
+  - slot_was_set:
+    - requested_slot: fault_distance
+  - slot_was_set:
+    - fault_distance: 50
+  - slot_was_set:
+    - requested_slot: tower_loc
+  - slot_was_set:
+    - input_category: 560
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_say_fault_details
+  - action: utter_slots_values
+  - checkpoint: check_flow_finished
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: finish flow
+  steps:
+  - checkpoint: check_flow_finished
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: goodbye
+  steps:
+  - or:
+    - intent: affirm
+    - intent: goodbye  
+    - intent: deny
+  - action: utter_goodbye
+
+  

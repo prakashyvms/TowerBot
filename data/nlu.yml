@@ -1,0 +1,379 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - thank you
+    - ok
+    - done
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - vincent
+    - vincent-mcvincent
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: request_names
+  examples: |
+    - i want to give you my name
+    - give name
+    - you need to know my name
+    - do you know my name?
+- intent: circular
+  examples: |
+    - i want to details on circular
+    - give circular 
+    - what is standard as per circular
+    - what is standard for patrolling cycle
+    - is circular data available
+- intent: test_kit
+  examples: |
+    - I want manual for test_kit
+    - May i know procedure for running laser measurement test kit
+    - what is the procedure for test kit
+    - give details of precautions to be taken for test kit
+- intent: transmission_line
+  examples: |
+    - what is name of transmission line
+    - give me line length of Vemagiri - Simhadri 400kV D/c transmission line
+    - give me name
+    - what is the name of transmission line
+    - transmission line
+- intent: patrolling
+  examples: |
+    - what is patrolling cycle
+    - what is frequency of patrolling cycle
+    - give patrolling frequency of lines
+    - patrolling
+- intent: tree_cutting
+  examples: |
+    - what are safety measures during tree cutting?
+    - minimum clearance to be maintained?
+    - what is infringement cleareance?
+    - tree cutting
+- intent: painting
+  examples: |
+    - what are norms for painting?
+    - How many layers of painting to be applied to stubs?
+    - Do we need to de-rusing agents for stubs?
+    - painting
+- intent: compensation
+  examples: |
+    - what are norms for compensation
+    - DoP clause for compensation
+    - give me guidelines for compnesation?
+    - compensation
+- intent: topic
+  examples: |
+     - want to know something
+     - what type of details you will be able to give
+     - what topics are available
+     - topic
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- intent: safety
+  examples: |
+     - Pl inform safety guide lines
+     - refer me to safety document
+     - what are POWERGRID safety norms
+     - safety
+
+- intent: spec
+  examples: |
+     - Pl educate me on technical specifications
+     - spec
+     - techincal spec
+     - what are available techincal specifications
+
+- intent: manual
+  examples: |
+     - Pl tell me about manual
+     - manual in POWERGRID
+     - manual
+     - guidelines on working
+
+- intent: tower
+  examples: |
+     - Pl give me tower specificaitons
+     - tower details
+     - tower spec
+     - what are important tower specifications
+
+- intent: conductor
+  examples: |
+     - Pl give me conductor specificaitons
+     - conductor details
+     - conductor spec
+     - what are important conductor specifications
+
+- intent: insulator
+  examples: |
+     - Pl give me insulator specificaitons
+     - insulator details
+     - insulator spec
+     - what are important insulator specifications
+
+- intent: TFR
+  examples: |
+     - Explain TFR measurement
+     - TFR
+     - Give me TFR details
+
+- intent: megger
+  examples: |
+     - Explain megger measurement
+     - megger
+     - Give megger details
+
+- intent: LaserCM
+  examples: |
+     - Explain Laser Cleareance measurement
+     - Laser Clearance Measurement Unit
+     - Give Laser Clearance Measurement Procedure
+
+- intent: total_station
+  examples: |
+     - Explain total station
+     - total station measurement procedure
+     - Give total station details
+     - total station
+
+- intent: erection_manual
+  examples: |
+     - Explain tower erection
+     - tower erection procedure
+     - Give tower erection details
+     - erection manual
+
+- intent: tlmprocedure
+  examples: |
+     - Explain TLM procedure
+     - Transmission Line Maintenance procedure
+     - Give Transmission Line Maintenance details
+     - TLM procedure
+
+- intent: stringing
+  examples: |
+     - Explain strining procedure
+     - strining procedure
+     - Give Transmission Line strining details
+     - stringing
+
+- intent: commissioningformats
+  examples: |
+     - Explain commissioning formats
+     - provide commissioning formats
+     - Give commissioning formats details
+     - commissioning formats
+
+- intent: inventorynorms
+  examples: |
+     - Explain inventory norms
+     - provide inventory norms
+     - Give inventorynorms details
+     - inventorynorms
+
+- intent: pollutionmeasurement
+  examples: |
+     - Explain pollution measurement procedure
+     - provide pollution measurement procedure
+     - Give pollution measurement details
+     - pollutionmeasurement
+
+- intent: ers
+  examples: |
+     - Explain ers procedure
+     - provide Emergency Restoration System procedure
+     - Emergency Restoration System
+     - ers
+
+- intent: clearance
+  examples: |
+     - give clearance details
+     - provide clearance of transmission lines
+     - give permissible clearance
+     - clearance
+
+- intent: RoWclearance
+  examples: |
+     - give RoW details
+     - provide RoW of transmission lines
+     - give Right of Way(RoW) of transmission lines
+     - RoW
+- intent: treeclearance
+  examples: |
+     - give permissible tree clearance
+     - provide details of tree clearance
+     - give allowable tree clearance
+     - tree clearance
+
+- intent: rivercrossclearance
+  examples: |
+     - give permissible river crossing clearance
+     - provide details of river crossing clearance
+     - give allowable river crossing clearance
+     - river crossing clearance
+
+- intent: groundclearance
+  examples: |
+     - give permissible ground clearance
+     - provide details of ground clearance
+     - give allowable ground clearance
+     - ground clearance
+
+- intent: conductorearthwireclearance
+  examples: |
+     - give conductor earthwire clearance
+     - provide permissible conductor earthwire clearance 
+     - give allowable conductor earthwire clearance
+     - conductor earthwire clearance
+
+- intent: linecrossingclearance
+  examples: |
+     - give line crossing clearance 
+     - provide permissible transmission line crossing clearance 
+     - give allowable transmission line crossing clearance
+     - line crossing clearance
+
+- intent: jumperdrop
+  examples: |
+     - give jumperdrop clearance 
+     - provide permissible jumperdrop clearance 
+     - give allowable jumperdrop clearance
+     - jumperdrop clearance
+
+- intent: highwayclearance
+  examples: |
+     - give highway clearance from transmission line 
+     - provide permissible highway clearance from transmission line
+     - give allowable highway clearance from transmission line
+     - highway clearance
+
+- intent: buildingclearance
+  examples: |
+     - give building clearance from transmission line 
+     - provide permissible building clearance from transmission line
+     - give allowable building clearance from transmission line
+     - buildingclearance
+
+- intent: 400kdctwin
+  examples: |
+     - give insulator configuration for 400kV Twin line 
+     - give details of 400kV Twin line 
+     - what insulators used in 400kV Twin line
+     - specification for 400kV Twin
+
+- intent: 400kdcquad
+  examples: |
+     - give insulator configuration for 400kV Quad line 
+     - give details of 400kV Quad line 
+     - what insulators used in 400kV Quad line
+     - specification for 400kV Quad
+
+- intent: 765kvdc
+  examples: |
+     - give insulator configuration for 765kV D/c line 
+     - give details of 765kV D/c line
+     - what insulators used in 765kV D/c line
+     - specification for 765kV D/c line
+
+- intent: 765kvsc
+  examples: |
+     - give insulator configuration for 765kV S/c line 
+     - give details of 765kV S/c line
+     - what insulators used in 765kV S/c line
+     - specification for 765kV S/c line
+
+- intent: 500kVHVDC
+  examples: |
+     - give insulator configuration for 500kV HVDC line 
+     - give details of 500kV HVDC line
+     - what insulators used in 500kV HVDC line
+     - specification for 500kV HVDC line
+
+- intent: drawing
+  examples: |
+     - give engineering drawing 
+     - give drawing details
+     - give drawings of transmission lines
+     - drawing details

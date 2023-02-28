@@ -1,0 +1,290 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Greet any time user greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+
+- rule: circular
+  steps:
+  - intent: circular
+  - action: utter_circular
+
+- rule: test_kit
+  steps:
+  - intent: test_kit
+  - action: utter_test_kit
+
+- rule: transmission_line
+  steps:
+  - intent: transmission_line
+  - action: name_form
+  - active_loop: name_form
+
+- rule: patrolling
+  steps:
+  - intent: patrolling
+  - action: utter_patrolling
+  
+- rule: tree_cutting
+  steps:
+  - intent: tree_cutting
+  - action: utter_tree_cutting
+  
+- rule: painting
+  steps:
+  - intent: painting
+  - action: utter_painting
+  
+- rule: compensation
+  steps:
+  - intent: compensation
+  - action: utter_compensation
+  
+- rule: megger
+  steps:
+  - intent: megger
+  - action: utter_megger
+  
+- rule: TFR
+  steps:
+  - intent: TFR
+  - action: utter_TFR
+  
+- rule: LaserCM
+  steps:
+  - intent: LaserCM
+  - action: utter_LaserCM
+  
+- rule: total_station
+  steps:
+  - intent: total_station
+  - action: utter_total_station
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate form
+  steps:
+  - intent: request_names
+  - action: name_form
+  - active_loop: name_form
+
+- rule: Submit form
+  condition:
+  - active_loop: name_form
+  steps:
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: action_say_fault_details
+  - action: utter_slots_values
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_options
+
+- rule: tower
+  steps:
+  - intent: tower
+  - action: utter_tower
+
+- rule: conductor
+  steps:
+  - intent: conductor
+  - action: utter_conductor
+
+- rule: insulator
+  steps:
+  - intent: insulator
+  - action: utter_insulator
+
+- rule: safety
+  steps:
+  - intent: safety
+  - action: utter_safety
+
+- rule: spec
+  steps:
+  - intent: spec
+  - action: utter_spec
+
+- rule: manual
+  steps:
+  - intent: manual
+  - action: utter_manual
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+  - action: utter_options
+  
+- rule: erection_manual
+  steps:
+  - intent: erection_manual
+  - action: utter_erection_manual
+
+- rule: tlmprocedure
+  steps:
+  - intent: tlmprocedure
+  - action: utter_tlmprocedure
+
+- rule: strining
+  steps:
+  - intent: strining
+  - action: utter_strining
+
+- rule: commissioningformats
+  steps:
+  - intent: commissioningformats
+  - action: utter_commissioningformats
+
+- rule: inventorynorms
+  steps:
+  - intent: inventorynorms
+  - action: utter_inventorynorms
+
+- rule: pollutionmeasurement
+  steps:
+  - intent: pollutionmeasurement
+  - action: utter_pollutionmeasurement
+
+- rule: ers
+  steps:
+  - intent: ers
+  - action: utter_ers
+
+- rule: clearance
+  steps:
+  - intent: clearance
+  - action: utter_clearance
+
+- rule: RoWclearance
+  steps:
+  - intent: RoWclearance
+  - action: utter_RoWclearance
+
+- rule: treeclearance
+  steps:
+  - intent: treeclearance
+  - action: utter_treeclearance
+
+- rule: rivercrossclearance
+  steps:
+  - intent: rivercrossclearance
+  - action: utter_rivercrossclearance
+
+- rule: groundclearance
+  steps:
+  - intent: groundclearance
+  - action: utter_groundclearance
+
+- rule: conductorearthwireclearance
+  steps:
+  - intent: conductorearthwireclearance
+  - action: utter_conductorearthwireclearance
+
+- rule: linecrossingclearance
+  steps:
+  - intent: linecrossingclearance
+  - action: utter_linecrossingclearance
+
+- rule: jumperdrop
+  steps:
+  - intent: jumperdrop
+  - action: utter_jumperdrop
+
+- rule: highwayclearance
+  steps:
+  - intent: highwayclearance
+  - action: utter_highwayclearance
+
+- rule: buildingclearance
+  steps:
+  - intent: buildingclearance
+  - action: utter_buildingclearance
+
+- rule: RoWclearance
+  steps:
+  - intent: RoWclearance
+  - action: utter_RoWclearance
+
+- rule: treeclearance
+  steps:
+  - intent: treeclearance
+  - action: utter_treeclearance
+
+- rule: rivercrossclearance
+  steps:
+  - intent: rivercrossclearance
+  - action: utter_rivercrossclearance
+
+- rule: groundclearance
+  steps:
+  - intent: groundclearance
+  - action: utter_groundclearance
+
+- rule: conductorearthwireclearance
+  steps:
+  - intent: conductorearthwireclearance
+  - action: utter_conductorearthwireclearance
+
+- rule: linecrossingclearance
+  steps:
+  - intent: linecrossingclearance
+  - action: utter_linecrossingclearance
+
+- rule: highwayclearance
+  steps:
+  - intent: highwayclearance
+  - action: utter_highwayclearance
+
+- rule: buildingclearance
+  steps:
+  - intent: buildingclearance
+  - action: utter_buildingclearance 
+
+- rule: 400kdctwin
+  steps:
+  - intent: 400kdctwin
+  - action: utter_400kdctwin
+
+- rule: 400kVdcquad
+  steps:
+  - intent: 400kVdcquad
+  - action: utter_400kVdcquad
+
+- rule: 765kVDC
+  steps:
+  - intent: 765kVDC
+  - action: utter_765kVDC
+
+- rule: 765kVSC
+  steps:
+  - intent: 765kVSC
+  - action: utter_765kVSC
+
+- rule: 500kVHVDC
+  steps:
+  - intent: 500kVHVDC
+  - action: utter_500kVHVDC
+
+- rule: drawing
+  steps:
+  - intent: drawing
+  - action: utter_drawing
